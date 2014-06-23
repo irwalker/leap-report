@@ -1,0 +1,269 @@
+%-----------------------------------------------------------------------------
+%
+%               Template for sigplanconf LaTeX Class
+%
+% Name:         sigplanconf-template.tex
+%
+% Purpose:      A template for sigplanconf.cls, which is a LaTeX 2e class
+%               file for SIGPLAN conference proceedings.
+%
+% Guide:        Refer to "Author's Guide to the ACM SIGPLAN Class,"
+%               sigplanconf-guide.pdf
+%
+% Author:       Paul C. Anagnostopoulos
+%               Windfall Software
+%               978 371-2316
+%               paul@windfall.com
+%
+% Created:      15 February 2005
+%
+%-----------------------------------------------------------------------------
+
+
+\documentclass{sigplanconf}
+
+% The following \documentclass options may be useful:
+
+% preprint      Remove this option only once the paper is in final form.
+% 10pt          To set in 10-point type instead of 9-point.
+% 11pt          To set in 11-point type instead of 9-point.
+% authoryear    To obtain author/year citation style instead of numeric.
+
+\usepackage{amsmath}
+\usepackage[pdftex]{graphicx}    
+\usepackage{wrapfig}
+
+%Listings package setup
+\usepackage{listings}
+\usepackage{color}
+
+\renewcommand{\lstlistingname}{Listing}% Listing -> Algorithm
+\renewcommand{\lstlistlistingname}{List of \lstlistingname s}% List of Listings -> List of Algorithms
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{
+  language=Java,
+  aboveskip = 3mm,
+  belowskip = 3mm,
+  breaklines = true
+}
+
+% \lstset{frame=tb,
+%   language=Java,
+%   aboveskip=3mm,
+%   belowskip=3mm,
+%   showstringspaces=false,
+%   columns=flexible,
+%   basicstyle={\small\ttfamily},
+%   numbers=none,
+%   numberstyle=\tiny\color{gray},
+%   keywordstyle=\color{blue},
+%   commentstyle=\color{dkgreen},
+%   stringstyle=\color{mauve},
+%   breaklines=true,
+%   breakatwhitespace=true
+%   tabsize=3
+% }
+
+
+\begin{document}
+
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+\conferenceinfo{CONF 'yy}{Month d--d, 20yy, City, ST, Country} 
+\copyrightyear{20yy} 
+\copyrightdata{978-1-nnnn-nnnn-n/yy/mm} 
+\doi{nnnnnnn.nnnnnnn}
+
+% Uncomment one of the following two, if you are not going for the 
+% traditional copyright transfer agreement.
+
+%\exclusivelicense                % ACM gets exclusive license to publish, 
+                                  % you retain copyright
+
+%\permissiontopublish             % ACM gets nonexclusive license to publish
+                                  % (paid open-access papers, 
+                                  % short abstracts)
+
+\titlebanner{banner above paper title}        % These are ignored unless
+\preprintfooter{short description of paper}   % 'preprint' option specified.
+
+\title{ENGR440 HCI - Final Project Report}
+\subtitle{Part One - Project Report}
+
+\authorinfo{Iain Walker}
+           {300212708}      
+
+
+\maketitle
+
+\begin{abstract}
+
+TODO
+
+\end{abstract}
+
+% \category{CR-number}{subcategory}{third-level}
+
+% general terms are not compulsory anymore, 
+% you may leave them out
+% \terms
+% term1, term2
+
+% \keywords
+% keyword1, keyword2
+
+\section{Introduction}
+
+
+
+\section{Leap Earth System}
+\label{sec:leap_system}
+
+The Leap Earth System created is intended to be a prototype for a more natural gestural interface for navigating a Google-Earth like application. Navigating current Google or Apple map systems with a mouse and keyboard or touchscreen is relatively straightforward. A more natural gestural interface is an interesting domain when considering applications that are easily grasped already with existing technologies. 
+
+The Leap Earth system simply consists of a map rendered on a globe that may be interacted with using gestures. As we zoom in and out, more or less detail is displayed on the globe. Actual features of mapping software (e.g. consider Google Maps direction function) has of course not been implemented. Rather the focus of implementation has been experimentation with various gestural control styles of the globe itself. One feature added to demonstrate additional layered interaction was the placing of markers on the map. This was added as part of consideration of the directions use-case for Google Maps; we must firstly place two markers that the mapping software will provide directions between. 
+
+Gestural features supported for globe interaction are primarily based on navigation around the globe. Moving the hand left moves the globe left; moving the hand right moves the globe right, and the same for up and down movements. Zooming is controlled by either moving the hand up or down, or via a finer-grained finger rotation gesture. Finally, perfoming a finger 'flick' action will place a marker at the center of the screen. Discussion of the supported gestural features is given in Section \ref{sec:design_decisions}.
+
+As well as the primary globe at center screen, a basic side-bar provides some extra functionality. There is a link to an 'about' page, that provides some description as to the purpose of the system, as well as the gestures supported. A stop rotation button allows for pausing of all animations, largely added for debugging purposes early in the project. A 'navigate to location' text box was also placed in the sidebar. This allows the user to type in some location - e.g. 'Wellington', which will cause the globe to rotate and zoom on that particular location. Finally, a Leap Hand is rendered in the sidebar, displaying precisely what the Leap Motion device sees in real time. 
+
+\subsection{Implementation Tools}
+
+The Leap Earth system was implemented using the Leap Motion javascript API \cite{}, running on a basic Python HTTP server. The globe is rendered using the WebGL Earth API \cite{}, and interfaces to tools such as Google Maps API for lookup and coordinate systems. The interface has been tested to work with Google Chrome above version 9 (not currently installed on ECS workstations).
+
+\section{Interface Design Decisions}
+\label{sec:design_decisions}
+
+The core design decisions relate to the gestural input design, as the interface layout itself is very straightforward. 
+
+\subsection{Navigation Gestures}
+
+The basis of the navigation gestures provided was built from imagining panning a virtual camera over the global map provided. This camera is held in the palm; thus moving the palm left moves the position shown left; right moves it right, and so on. Initially the approach I wanted to take revolved around holding a virtual soccer ball in two hands, and navigating around the globe as you might inspect or rotate such a virtual sphere in your hand. This proved too innaccurate and difficult to implement however; actual recognition of these quite detailed gestures necessary to rotate such an object is not something that the Leap Motion device is very good at to a high degree - immediate detection of gestures is not consistently forthcoming, as will be discussed in more detail in Section \ref{sec:leap_interaction}.
+
+Having instead deciding on a camera-based approach, actual implementation strategies were considered. Leap Motion examples online actually demonstrate interaction with a Globe, using hand position to control camera position as desired. However these used an approach of directly mapping hand position in the plane detected by Leap Motion into a corresponding globe position and rotation. This is clearly not suitable when considering a mapping tool that must provide navigation capabilities up to very high levels of zoom, as very small movements would correspond to massive distances when implemented on the scale of the globe. Further, removing the hand from the leap motion space will reset the globe's position in these examples. Instead the relative magnitude of hand translation corresponds to movement of the globe, as shown in the formula below.
+
+% \renewcommand{\lstlistingname}{Code}
+\begin{lstlisting}
+ var newLng = lng +  Math.sin(rotateX * Math.PI/180) * getSensitivity(earth); //sensitivity changes based on current zoom level
+\end{lstlisting}
+% \label{fig:mag_calc}
+
+
+The actual mapping from size of hand movement to amount of rotation induced relates to the current level of zoom, as demonstrated in the formula. This currently followed a simple 50/currentzoom squared formula, which was simply worked out through trial and error. This mapping from zoom to magnitude of translation is not perfect, as small movements at high levels of zoom still have quite large results in camera movement. With a better mathematical understanding of zoom levels to magnitude of movement required though, this could be improved. 
+
+\subsection{Finer Zoom Control}
+
+The challenge of mapping small hand movements onto a surface as large as the globe affected implementation of zoom adjustment also. The Leap zone of detection was simply not large enough to only implement zoom related to how high the hand is held. As such, a circling finger gesture was added to facilitate finer grained zoom control. Circling the finger clockwise increases zoom, whilst anti-clockwise movement decreases zoom. This was simply based off intuition - 'lefty loosey righty tighty'. One of the challenges of course with adding further gestures to a system that implements globe rotation based off of hand position is that the Leap Motion regularly interprets the circling finger as the palm actually changing position. As a countermeasure, during detection of a current finger-circling gesture, any movement of the hand itself is ignored. This interpretation of gestures as hand movement was a difficulty with every single additional feature I attempted to add to the system - which we will review in Section \ref{sec:leap_interaction}.
+
+A potential future solution to this issue of false-positive palm movement could be to implement a 'dead zone' of slight movements, which are just thrown away. In a basic sense I experimented with this - naiively completely ignoring any movements around 0.1 'Leap Units'. The problem with this approach was that it was still not enough to get rid of movement when circling the finger. Further, any larger dead zones made navigation around the world rather unintuitive, as small movements would result in no change, but when the dead zone boundary was breached a sudden large judder would result. This was detrimental enough that I considered the screen locking approach the best one for the prototype at least.
+
+\subsection{Placing of Markers}
+
+The final action possible on the main earth section is the placing of coordinate markers. This was considered as part of a possible wider future use case, in which users place markers and then for example request directions between the two markers. It was also a relevant way of investigating the very real problem of layering additional features onto a gestural system. The gesture to place coordinates is what Leap Motion calls a 'ScreenTapGesture' - a forward tapping movement by the finger. This seemed the most natural way of placing markers on a map as currently supported by the existing Javascript gesture API. 
+
+It is likely that at this stage the reader is thinking of the circling gestures, and how false palm movement detection resulted in undesired globe rotation. The output for a jerky finger tap is, as one would expect, even worse. Again, implementation of a dead zone could have helped with this, but at such a detriment to overall usability that this was considered infeasible. Other gestures were again considered. 
+
+% were considered too great. 
+
+
+% Immediately the reader may be reminded of the circling gesture, and 
+
+\subsection{Sidebar Design Decisions}
+
+\subsection{Further Discarded Gestures}
+
+Swiping gesture, with increased swipes
+
+Talk about how designers of leap motion interfaces must carefully consider what gestures they are going to implement, and ensure that they do not clash. Thus simple interfaces with a limited number of possible actions are possibly the best
+
+
+% The basis of the navigation gestures provided was built from imagining panning a virtual camera over the globe provided. 
+
+
+
+% The core design decisions revolve around the gestural input design, as the interface layout itself is very straightforward. The main goal of the project was to provide interaction techniques that would make sense, as if you were rotating a real ball in your hand. This resulted in the hand-movements I implemented, as described in section \ref{sec:leap_system}. Other globe-moving gesture systems I saw online took a similar approach in terms of mapping gesture movement to translation in the virtual world. However the systems I found implemented a direct mapping from hand position to vector coordinates on the globe. This would mean that if a hand was detected at points x, y, and z, the camera would be directly mapped to a point in the 3D plane. This is not a suitable approach for a navigation system. Instead I implemented positional change in the world related to the magnitude of hand movement in directions x, y, and z. 
+
+\section{Leap Motion Interaction Critique} 
+\label{sec:leap_interaction}
+
+\section{Leap Motion Development Discussion}
+
+% These include links to an 'about' page which describes the supported gestures, a 'stop' button (which cancels all movement on page), a na
+
+% Gestural features supported include the navigation around the globe; panning left, panning right, up and down. Zoom is supported through hand movement and a finer-grained finger rotation gesture. 
+
+% Gestural design is based upon imagining controlling a camera that rotates around the virtual sphere - or in this case the globe rendered in the main view. 
+
+
+% The actual gestural design was initially based upon imagining how I would interact with a virtual spherical object. 
+
+
+
+% The Leap Earth System was intended to be a more intuitive interface for navigating a Google-Earth like environment. Whilst navigating current Google or Apple map systems with a mouse and keyboard setup is fairly straightforward, a more natural intuitive gesture controlled system would be an interesting experiment. The Leap Earth system constructed simply consists of a globe which may be rotated and interacted with as one would rotate a football-like sphere in an invisible plane. For example, moving the hand left moves the globe left, moving the hand forward moves the globe up, and moving the hand up or down controls the zoom level of the map. Responsiveness of the various movements is relative to how far zoomed in the camera is - for example at low levels of zoom, rotating the entire globe is possible, whereas at higher levels finer grained control is required. 
+
+
+
+% The interface consists only of the main Globe and a side-bar to assist navigation and provide links to an 'about' page. On the side bar, a 'leap hand' image is provided which renders the hands that the device currently sees. I initially built this for debugging and learning purposes, but left it in the application following feedback that it provided useful context about what the sensor device could see. 
+
+%TODO insert image of the hand visualiser
+
+% The main globe is where exploration of the globe can occur. This was built using the WebGL Earth API, which provides an inbuilt-globe rendering to an HTML page with a javascript API for performing operations on the globe. A full description of the features of the API is available at \cite{}.
+
+% The Leap Earth system is a globe rendered on an HTML page, which I have running on a Python HTTP server. 
+
+% As such, one aim of this prototype was to investigate how gestural interfaces could perform in an application domain where the equivalent standardised interactions are easily grasped.
+
+
+% \subsection{Gesture Design}
+
+
+
+
+% \section{Interface Design Decisions}
+
+%%Why a globe
+%Why the gestural inputs
+%Finer grained gestural control
+%Adding extra inputs, and the issues that arise from these extra inputs
+%Some mechanism of locking external rotation input - e.g. we make some gesture and then position rotation stops - but in doing this gesture the globe will move!
+
+
+
+
+
+
+
+
+
+
+
+\subtitle{Part Two - Experiment Report}
+
+% By demonstrating largely through example how modularity and concurrency implementations can be synergystic, a strong argument applying GOF patterns to enhance modularity coupled with an automated concurrent framework were applied to real-world applications. 
+
+% Discussion of the core contribution of the paper being the framework provided. Discuss how its current primary limitation is that it cannot completely abstract parallel programming in every case. In order for this to occur, a complete backend system would need to be developed, rather than the lightweight pattern based system that was implemented.
+
+% \cite{wirfs1989object}
+
+% We recommend abbrvnat bibliography style.
+
+% \bibliographystyle{acm}
+\bibliographystyle{abbrvnat}
+\bibliography{bibliography}  % often included from a separate file.
+
+
+\end{document}
+
+%                       Revision History
+%                       -------- -------
+%  Date         Person  Ver.    Change
+%  ----         ------  ----    ------
+
+%  2013.06.29   TU      0.1--4  comments on permission/copyright notices
+

@@ -1,0 +1,14 @@
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdftex 2014.5.29)  21 JUN 2014 18:25
+entering extended mode
+**E:/University/2014/HCI/Project2_Final/reports/sigplanconf.cls
+(E:/University/2014/HCI/Project2_Final/reports/sigplanconf.cls
+! Undefined control sequence.
+l.29 \NeedsTeXFormat
+                    {LaTeX2e}[1995/12/01]
+? 
+! Emergency stop.
+l.29 \NeedsTeXFormat
+                    {LaTeX2e}[1995/12/01]
+End of file on the terminal!
+
+!  ==> Fatal error occurred, no output PDF file produced!
