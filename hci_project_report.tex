@@ -173,24 +173,41 @@ Having reviewed the Leap Earth system developed, and discussed core design decis
 
 As a peripheral device for a computer, the Leap Motion is as easy to install and setup as one would expect it to be. Every system I have plugged the Leap Motion into detects the controller immediately and installs the relevant packages required to get the software running. The fact that a Leap Motion focused application store comes packaged with the basic software downloads increases the ease of learning how to control with the system. With a multitude of basic games at your fingertips, getting started is a breeze. The Leap device itself is also extremely unobtrusive. One does not notice it taking up any room on your desk. The technology behind the Leap Motion is also basic enough that the device is affordable to consumers. It uses infrared optics and cameras instead of the Kinects depth sensors, at much higher fidelity than the Kinect, at a refresh rate higher than computer monitors \cite{}. The software backing the device is what really sets it apart, though; algorithms for which are being (understandably) kept very secret. Thus from a consumer perspective the Leap Motion has taken the right approach. 
 
+\subsection{Accuracy Issues}
 
-%the detection and modelling software is really what sets the Leap Motion apart. 
+It was after getting started, and the exciting novelty of controlling applications with my hands wore off that real issues with the accuracy of the device became more noticeable. Whilst the fidelity of the device is extremely high, when experimenting with the visualiser you can see how often fingers cut out or fuse together. Detection of hands themselves sometimes fails, with a hand disapearing for a second. 
 
-\subsection{The Good}
+Occlusion is of course an issue, and where one hand or parts of a hand block fingers (for example when a hand is turned sideways) the Leap Motion has real difficulty detecting what is going on. This results in some unexpected hand models. Occlusion is potentially solveable using two Leap Motions however, as discussed in class.
 
-I found the Leap Motion as a sensor incredibly accurate and fine-tuned with what it could detect. 
+A constant problem with the Leap Motion is getting a feel for the boundaries of the device. In most applications there is no supported reference for whether your hands are within the bounding box of detection area. I attempted to address this in my application, but the immediate and sudden loss of control is still an issue. There appears to be no blurred edge to the Leap boundary; you are either detected or not. Perhaps this was a design decision to immediately cut off the hand rather than attempt to poorly model hands when they approach the edge of detection area. Online critiques of the Leap Motion support this claim; in action games for example, hands would often come outside the bounding box in writers' excitement, resulting in immediate loss of control \cite{}. 
 
-\subsection{The Bad}
+\subsection{Difficulty Detecting Gestures}
 
-It was after getting started, and the exciting novelty of controlling applications with my hands wore off that real issues with the accuracy of the device became more noticeable. Whilst the fidelity of the device is extremely high, 
+Despite the relatively frequent failures of the Leap Motion to accurately detect hand position and posture, these innacuracies are made worse with the Gestures supported. The main problem I faced when implementing a swipe gesture originally for the Leap Earth was actually figuring out how to perform a swipe that the Leap device would detect. It seems like gestures have to be performed in a very rigorous, well-defined manner for the Leap Motion to recognise the action as a supported gesture. It is worth noting that my difficulties in figuring out a reproducable swipe action were encountered after reading developer documentation for what constitutes a swipe action - this would likely be more unintuitive for a casual user coming to the device. The exagerated gesture needed to register a swipe was part of the reason I had to remove it from the Leap Earth application - if a subtle swipe was enough to register, it may have been maintainable.
 
-% with its ridiculously small size I 
+\subsection{User Fatigue}
 
-%Personally however, it was after getting started that I began to notice issues and annoyances interacting with the Leap Motion device.
+Something that rarely occurs with the traditional mouse and keyboard setup is user tiring. However with the Leap Motion, after holding my hands in the air for extended periods of time I found myself getting tired. Despite the tag of natural and intuitive interaction given to Leap Motion, it is actually not particularly natural to sit with arms extended for long periods of time. This was mitigatable at my desk my resting my elbows on the seat armrests, but was still a much more effort-inducing posture than typing on a keyboard. I wonder how Occupational overuse syndrome (OOS) would fare with long-term uses of the Leap Motion - surely the requirement for significantly more muscle use than the keyboard/mouse, and little more oxygen moving through the body would be a prime cause of OOS.
 
-%As an interaction device my conclusion is that the software is still at the novelty-device stage. 
+\subsection{New Design Considerations}
+
+Following discussion in class about designing for intuitive gesture based interfaces, I imagined that implementing an interface based off pure gesture recognition and interaction would be relatively straightforward. However the difficulty with the device recognising hand position and gestures made this task more complicated than I envisaged. The lack of established standards and rules also means that experimentation is the rule of the day; it is still difficult to predict whether a set of gestures will work together and not conflict. 
+
+The above difficulties with both designing interfaces for Leap Motion and actually using the tool accurately mean that I believe the Leap Motion is still at a gimmicky stage of gesture-based interface design and use. While the tool was fun to play with and build a tool for, at this stage the real limitations with its use mean I could not envisage it as a serious industrial tool. 
 
 \section{Leap Motion Development Discussion}
+
+The Leap Motion was a nice tool to develop software for, reasons for which will be discussed now.
+
+\subsection{Getting Developers Started}
+
+A goal for the creators of Leap Motion is surely to get as many developers working with the software as possible. The approaches taken by Leap Motion has strongly supported this aim. A common starting point for developers when learning a new tool is to want to dive into some code and get a feel for the system. There are a wide range of tutorial examples available online for Leap Motion, with step-by-step instruction as to the software design of the Leap Controller, moving into drawing what the Controller sees, moving into supported gesture recognition. If these tutorials are not enough, many developers have posted code online demonstrating their own basic Leap Motion applications, which is of further benefit when moving through the learning process of understanding a new tool. 
+
+The multitude of supported languages for developing with Leap is of great advantage also. Javascript, C\# (with Unity support), C++, Java, Python and Objective-C are all supported, which in the current code climate is enough to represent languages for basically every platform available. Leap Motion developers are in no means limited by choice of API or platform.
+
+\subsection{Programming Model}
+
+The only API I worked with was the Javascript API, largely because working with Javascript and HTML is a very straightforward means to getting a basic interface up and running quickly (e.g. compared to Java swing). The Leap Motion programming model whilst working with the Javascript API is very sensible, basically just consisting of a single programming loop, following reactive programming models. This works well with web documents, as the loop refresh is about as fast as page refresh. This allows for very smooth manipulation of objects, as seen with the Leap Earth system - manipulation of the globe is very smooth. 
 
 % These include links to an 'about' page which describes the supported gestures, a 'stop' button (which cancels all movement on page), a na
 
@@ -225,11 +242,7 @@ It was after getting started, and the exciting novelty of controlling applicatio
 
 % \section{Interface Design Decisions}
 
-%%Why a globe
-%Why the gestural inputs
-%Finer grained gestural control
-%Adding extra inputs, and the issues that arise from these extra inputs
-%Some mechanism of locking external rotation input - e.g. we make some gesture and then position rotation stops - but in doing this gesture the globe will move!
+\section{Conclusion}
 
 
 
@@ -237,11 +250,7 @@ It was after getting started, and the exciting novelty of controlling applicatio
 
 
 
-
-
-
-
-\subtitle{Part Two - Experiment Report}
+%\subtitle{Part Two - Experiment Report}
 
 % By demonstrating largely through example how modularity and concurrency implementations can be synergystic, a strong argument applying GOF patterns to enhance modularity coupled with an automated concurrent framework were applied to real-world applications. 
 
