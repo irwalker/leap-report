@@ -66,7 +66,7 @@
 
 \begin{abstract}
 
-This section of report discusses an experiment to evaluate the effectiveness of the Leap Earth visualisation system, as well as the Leap Motion device itself. The experiment attempts to verify whether gestural interaction with the mapping system will improve user spatial awareness, and measure qualitatively user satisfaction with the interface compared with keyboard and mouse input. A detailed experiment description is outlined, followed by justification of experimental design decisions made. 
+This section of report discusses an experiment to evaluate the effectiveness of the Leap Earth visualisation system, as well as the Leap Motion device itself. 
 
 \end{abstract}
 
@@ -152,8 +152,10 @@ Unfortunately with navigation tasks, local participants will be at an advantage 
 
 The experiment relating to better spatial understanding through gestural interfaces was selected due to the unfortunate likelihood that the Leap Earth system is going to be inevitably slower than a keyboard/mouse or touchscreen mapping interface. This is because there are massive shortcuts available when navigating with keyboard and mouse input, such as direct location input. Whilst an experiment to validate location lookup efficiency would have been valid, it would have been a fairly one-sided experiment in the context of Leap Earth. 
 
-Further with respect to mapping applications, interfaces have become fairly standardised and the market dominated by Google maps and Apple maps. To demonstrate that a new mapping software controlled by Leap Motion is beneficial, I thought it likely that an alternate benefit such as better spatial understanding was more reasonable than actual efficiency gains. Ubiquitous computing proponents have stated that as we move towards more natural interfaces, there will often be efficiency losses immediately after a shift - for example the command line is a more efficient tool than mouse/keyboard, but certainly less intuitive or natural \cite{}. 
+Further with respect to mapping applications, interfaces have become fairly standardised and the market dominated by Google maps and Apple maps. To demonstrate that a new mapping software controlled by Leap Motion is beneficial, I thought it likely that an alternate benefit such as better spatial understanding was more reasonable than actual efficiency gains. Ubiquitous computing proponents have stated that as we move towards more natural interfaces, there will often be efficiency losses immediately after a shift - for example the command line is a more efficient tool than mouse/keyboard, but certainly less intuitive or natural. 
 
+
+% We recommend abbrvnat bibliography style.
 
 \bibliographystyle{abbrvnat}
 \bibliography{bibliography}  % often included from a separate file.

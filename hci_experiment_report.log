@@ -1,24 +1,22 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.29)  27 JUN 2014 13:20
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (Web2C 2013) (format=pdflatex 2014.4.13)  27 JUN 2014 15:36
 entering extended mode
-**E:/University/2014/HCI/Project2_Final/leap-report/hci_experiment_report.tex
-(E:/University/2014/HCI/Project2_Final/leap-report/hci_experiment_report.tex
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**hci_experiment_report.tex
+(./hci_experiment_report.tex
 LaTeX2e <2011/06/27>
-Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
-abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
-croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
-lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
-ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
- lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
-german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
-ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
-an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
-ishmax, welsh, loaded.
-(E:\University\2014\HCI\Project2_Final\leap-report\sigplanconf.cls
+Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, uk
+rainian, turkish, swedish, spanish, slovenian, slovak, serbian, russian, romani
+an, portuguese, polish, bokmal, nynorsk, latin, italian, irish, indonesian, ice
+landic, hungarian, monogreek, greek, german, ngerman, french, finnish, estonian
+, esperanto, dutch, danish, czech, croatian, catalan, bulgarian, basque, loaded
+.
+(./sigplanconf.cls
 Document Class: sigplanconf 2013/07/02 v2.8 ACM SIGPLAN Proceedings
 \@numheaddepth=\count79
-(E:\Programs\mikitexprog\tex\latex\base\article.cls
+(/usr/pkg/share/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
-(E:\Programs\mikitexprog\tex\latex\base\size10.clo
+(/usr/pkg/share/texmf-dist/tex/latex/base/size10.clo
 File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count80
@@ -37,7 +35,7 @@ File: size10.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \standardvspace=\skip43
 
 Using natbib package with 'numbers' citation style.
-(E:\Programs\mikitexprog\tex\latex\natbib\natbib.sty
+(/usr/pkg/share/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip44
 \bibsep=\skip45
@@ -56,41 +54,41 @@ LaTeX Info: Redefining \cite on input line 694.
 \@authori=\count91
 \@measbox=\box26
 )
-(E:\Programs\mikitexprog\tex\latex\amsmath\amsmath.sty
-Package: amsmath 2013/01/14 v2.14 AMS math features
+(/usr/pkg/share/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip51
 
 For additional information on amsmath, use the `?' option.
-(E:\Programs\mikitexprog\tex\latex\amsmath\amstext.sty
+(/usr/pkg/share/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(E:\Programs\mikitexprog\tex\latex\amsmath\amsgen.sty
+(/usr/pkg/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks16
 \ex@=\dimen104
 ))
-(E:\Programs\mikitexprog\tex\latex\amsmath\amsbsy.sty
+(/usr/pkg/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
 \pmbraise@=\dimen105
 )
-(E:\Programs\mikitexprog\tex\latex\amsmath\amsopn.sty
+(/usr/pkg/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
 \inf@bad=\count92
-LaTeX Info: Redefining \frac on input line 210.
+LaTeX Info: Redefining \frac on input line 211.
 \uproot@=\count93
 \leftroot@=\count94
-LaTeX Info: Redefining \overline on input line 306.
+LaTeX Info: Redefining \overline on input line 307.
 \classnum@=\count95
 \DOTSCASE@=\count96
-LaTeX Info: Redefining \ldots on input line 378.
-LaTeX Info: Redefining \dots on input line 381.
-LaTeX Info: Redefining \cdots on input line 466.
+LaTeX Info: Redefining \ldots on input line 379.
+LaTeX Info: Redefining \dots on input line 382.
+LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box27
 \strutbox@=\box28
 \big@size=\dimen106
-LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count97
 \c@MaxMatrixCols=\count98
 \dotsspace@=\muskip10
@@ -111,10 +109,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \multlinegap=\skip52
 \multlinetaggap=\skip53
 \mathdisplay@stack=\toks20
-LaTeX Info: Redefining \[ on input line 2665.
-LaTeX Info: Redefining \] on input line 2666.
+LaTeX Info: Redefining \[ on input line 2666.
+LaTeX Info: Redefining \] on input line 2667.
 )
-(E:\University\2014\HCI\Project2_Final\leap-report\hci_experiment_report.aux)
+(./hci_experiment_report.aux)
+\openout1 = `hci_experiment_report.aux'.
+
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
@@ -129,14 +129,14 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
 LaTeX Font Info:    ... okay on input line 35.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 35.
 
-(E:\Programs\mikitexprog\tex\latex\psnfss\ot1ptm.fd
+(/usr/pkg/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <18> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 65.
 LaTeX Font Info:    Try loading font information for OMS+ptm on input line 65.
 
-(E:\Programs\mikitexprog\tex\latex\psnfss\omsptm.fd
+(/usr/pkg/share/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
@@ -144,43 +144,35 @@ LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <7> not available
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <11> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 89.
-
-Underfull \vbox (badness 3088) has occurred while \output is active []
-
-
-Underfull \vbox (badness 1163) has occurred while \output is active []
-
- [1{C:/ProgramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 91.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 
 Non-PDF special ignored!
 
 ]
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 128.
-
-(E:\University\2014\HCI\Project2_Final\leap-report\hci_experiment_report.bbl)
-[2]
-(E:\University\2014\HCI\Project2_Final\leap-report\hci_experiment_report.aux) )
- 
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 130.
+ (./hci_experiment_report.bbl) [2]
+(./hci_experiment_report.aux) ) 
 Here is how much of TeX's memory you used:
- 1417 strings out of 493921
- 16693 string characters out of 3148889
- 78475 words of memory out of 3000000
- 4746 multiletter control sequences out of 15000+200000
- 20838 words of font info for 37 fonts, out of 3000000 for 9000
- 841 hyphenation exceptions out of 8191
- 30i,9n,30p,928b,212s stack positions out of 5000i,500n,10000p,200000b,50000s
-{E:/Programs/mikitexprog/fonts/enc/dvips/fontname/8r.enc}<E:/Programs/mikitexpr
-og/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/Programs/mikitexprog/fonts/type
-1/public/amsfonts/cm/cmsy8.pfb><E:/Programs/mikitexprog/fonts/type1/urw/times/u
-tmb8a.pfb><E:/Programs/mikitexprog/fonts/type1/urw/times/utmr8a.pfb><E:/Program
-s/mikitexprog/fonts/type1/urw/times/utmr8a.pfb><E:/Programs/mikitexprog/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on hci_experiment_report.pdf (2 pages, 77997 bytes).
+ 1410 strings out of 493945
+ 16146 string characters out of 6159096
+ 78030 words of memory out of 5000000
+ 4691 multiletter control sequences out of 15000+600000
+ 20838 words of font info for 37 fonts, out of 8000000 for 9000
+ 774 hyphenation exceptions out of 8191
+ 30i,9n,30p,878b,212s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/pkg/share/texmf-dist/fonts/enc/dvips/base/
+8r.enc}</usr/pkg/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></us
+r/pkg/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/pkg/share
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/pkg/share/texmf-dist/fonts/t
+ype1/urw/times/utmr8a.pfb></usr/pkg/share/texmf-dist/fonts/type1/urw/times/utmr
+8a.pfb></usr/pkg/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on hci_experiment_report.pdf (2 pages, 74230 bytes).
 PDF statistics:
- 34 PDF objects out of 1000 (max. 8388607)
+ 36 PDF objects out of 1000 (max. 8388607)
+ 25 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
