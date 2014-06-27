@@ -1,0 +1,15 @@
+\begin{thebibliography}{1}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Wen et~al.(2014)Wen, Deneka, Helton, and Billinghurst]{wen2014really}
+J.~Wen, A.~Deneka, W.~Helton, and M.~Billinghurst.
+\newblock Really, it's for your own good... making augmented reality navigation
+  tools harder to use.
+\newblock In \emph{CHI'14 Extended Abstracts on Human Factors in Computing
+  Systems}, pages 1297--1302. ACM, 2014.
+
+\end{thebibliography}

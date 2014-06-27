@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.29)  27 JUN 2014 11:00
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.29)  27 JUN 2014 11:34
 entering extended mode
 **E:/University/2014/HCI/Project2_Final/leap-report/hci_project_report.tex
 (E:/University/2014/HCI/Project2_Final/leap-report/hci_project_report.tex
@@ -245,13 +245,14 @@ Non-PDF special ignored!
 ] [2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-
+ [3]
 (E:\University\2014\HCI\Project2_Final\leap-report\hci_project_report.bbl
 
 Package natbib Warning: Empty `thebibliography' environment on input line 8.
 
-) [3] (E:\University\2014\HCI\Project2_Final\leap-report\hci_project_report.aux
-) ) 
+) [4
+
+] (E:\University\2014\HCI\Project2_Final\leap-report\hci_project_report.aux) ) 
 Here is how much of TeX's memory you used:
  3710 strings out of 493921
  48900 string characters out of 3148889
@@ -260,15 +261,16 @@ Here is how much of TeX's memory you used:
  19759 words of font info for 36 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
  30i,10n,40p,1197b,992s stack positions out of 5000i,500n,10000p,200000b,50000s
-{E:/Programs/mikitexprog/fonts/enc/dvips/fontname/8r.enc}<E:/Programs/mikite
-xprog/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/Programs/mikitexprog/fonts/t
-ype1/public/amsfonts/cm/cmsy9.pfb><E:/Programs/mikitexprog/fonts/type1/urw/time
-s/utmb8a.pfb><E:/Programs/mikitexprog/fonts/type1/urw/times/utmr8a.pfb><E:/Prog
-rams/mikitexprog/fonts/type1/urw/times/utmr8a.pfb><E:/Programs/mikitexprog/font
-s/type1/urw/times/utmri8a.pfb>
-Output written on hci_project_report.pdf (3 pages, 85280 bytes).
+{
+E:/Programs/mikitexprog/fonts/enc/dvips/fontname/8r.enc}<E:/Programs/mikitexpro
+g/fonts/type1/public/amsfonts/cm/cmsy7.pfb><E:/Programs/mikitexprog/fonts/type1
+/public/amsfonts/cm/cmsy9.pfb><E:/Programs/mikitexprog/fonts/type1/urw/times/ut
+mb8a.pfb><E:/Programs/mikitexprog/fonts/type1/urw/times/utmr8a.pfb><E:/Programs
+/mikitexprog/fonts/type1/urw/times/utmr8a.pfb><E:/Programs/mikitexprog/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on hci_project_report.pdf (4 pages, 88557 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
+ 40 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

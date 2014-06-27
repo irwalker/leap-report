@@ -1,0 +1,171 @@
+%-----------------------------------------------------------------------------
+%
+%               Template for sigplanconf LaTeX Class
+%
+% Name:         sigplanconf-template.tex
+%
+% Purpose:      A template for sigplanconf.cls, which is a LaTeX 2e class
+%               file for SIGPLAN conference proceedings.
+%
+% Guide:        Refer to "Author's Guide to the ACM SIGPLAN Class,"
+%               sigplanconf-guide.pdf
+%
+% Author:       Paul C. Anagnostopoulos
+%               Windfall Software
+%               978 371-2316
+%               paul@windfall.com
+%
+% Created:      15 February 2005
+%
+%-----------------------------------------------------------------------------
+
+
+\documentclass{sigplanconf}
+
+% The following \documentclass options may be useful:
+
+% preprint      Remove this option only once the paper is in final form.
+% 10pt          To set in 10-point type instead of 9-point.
+% 11pt          To set in 11-point type instead of 9-point.
+% authoryear    To obtain author/year citation style instead of numeric.
+
+\usepackage{amsmath}
+
+
+\begin{document}
+
+\special{papersize=8.5in,11in}
+\setlength{\pdfpageheight}{\paperheight}
+\setlength{\pdfpagewidth}{\paperwidth}
+
+\conferenceinfo{CONF 'yy}{Month d--d, 20yy, City, ST, Country} 
+\copyrightyear{20yy} 
+\copyrightdata{978-1-nnnn-nnnn-n/yy/mm} 
+\doi{nnnnnnn.nnnnnnn}
+
+% Uncomment one of the following two, if you are not going for the 
+% traditional copyright transfer agreement.
+
+%\exclusivelicense                % ACM gets exclusive license to publish, 
+                                  % you retain copyright
+
+%\permissiontopublish             % ACM gets nonexclusive license to publish
+                                  % (paid open-access papers, 
+                                  % short abstracts)
+
+%\titlebanner{banner above paper title}        % These are ignored unless
+%\preprintfooter{short description of paper}   % 'preprint' option specified.
+
+\title{ENGR440 HCI - Final Project Report}
+\subtitle{Part Two - Experiment Report}
+
+\authorinfo{Iain Walker}
+           {300212708}
+
+\maketitle
+
+\begin{abstract}
+This is the text of the abstract.
+\end{abstract}
+
+
+\section{Introduction}
+
+The Leap Earth system described in part one of this report is a 3D alternative prototype to existing mapping software systems. The problem I wish to investigate is whether using a 3D mapping interface better commits to memory a given terrain. Other mapping issues such as location finding will clearly be better using a keyboard and mouse setup; in the Leap Earth system for example, there is a feature allowing for immediate location search via text entry.
+
+Literature has identified that context-awareness using current software-based mapping tools is limited. Peoples spatial awareness is affected using mapping tools that automatically provide directions, potentially making inviduals dependant on their smartphones for navigation advice. Billinghurst et al. \cite{wen2014really} argue that forcing users to demonstrate knowledge of surroundings will increase user's knowledge of surrounding terrain, despite increased inefficiency of actual use of the navigation tool introduced by this approach. A 3D spatial interaction tool such as the Leap Earth system could have similar repercussions; despite being more inefficient for traditional mapping tasks, the gestural input could force users to generate more spatial awareness about the surroundings than the impartial keyboard/mouse input.
+
+The remainder of the experimental proposal will be structured as follows. Section \ref{sec:experiment} discusses the experimental design. Section \ref{sec:discussion} reviews the experimental design and argues its validity.
+
+%As such, I intend to run an experiment on the Leap Earth system in the context of common use cases of real mapping software. The use case I consider is navigating between two locations following reference to the 3D navigation software. 
+
+%The experiment I will run aims to resolve whether interacting with a mapping system 
+
+\section{Experiment Description}
+\label{sec:experiment}
+
+My Leap Motion experiment aims to verify whether 3D gestural mapping interfaces result in better spatial understanding of areas than traditional keyboard/mouse interfaces. This refers to understanding of the actual layout of areas explored using the Leap Motion device, compared to the understanding engendered by existing keyboard/mouse navigation tools.
+
+\subsection{Method}
+
+\subsubsection{Participants}
+
+I intend to use around 16 randomly-selected participants. These would preferably be selected from not just within the University, as well as achieving a balanced representation of participants who had used gestural interfaces before with those who had not. Although most of the population have likely not used a Leap Motion device, having a small number involved in the experiment who had would be useful to see (although not statiscally check) whether prior experience with gesture devices had any immediately obvious effect on participant accuracy.
+
+\subsubsection{Conditions}
+
+The two interaction styles will both be compared using the Leap Earth system. One task will require participants to use the gestural interface to navigate between two locations, the other will require participants to navigate the Leap Earth interface using standard keyboard/mouse input. 
+
+\subsubsection{Tasks}
+
+The participants will be required to navigate between two locations, once using the gestural interface and once using the keyboard/mouse setup. Having performed the navigation they will be required to drive between these two points. Physical maps will be provided during the driving exercise for participants to refer to. Multiple locations will be used, as we do not want participants to navigate around parts of town that they are particular familiar with.
+
+\subsubsection{Procedure}
+
+Participants will firstly be given 5 minutes maximum to familiarise themselves with the Leap Earth interface, using either the mouse and keyboard or gesture input (depending on which task they are carrying out first). Two locations will then be provided, and the users will be told that they must work out a route between these two destinations that they will be required to drive between. The users will be given as much time as the desire to familiarise themselves with the route. 
+
+Immediately following the interface navigation task, participants will drive between the two destinations, with reference to maps if necessary as aforementioned. If the user becomes genuinely lost and cannot continue, this will be recorded as a DNF (did not finish).
+
+A 30 minute break will be given to the participant before repeating the experiment with the alternate input technology.
+
+Following both tasks, a semi-structured interview will be conducted to solicit user opinion with the various interfaces. Of particular interest is any frustration with either interaction technique, or perceived innefficiency.
+
+\subsubsection{Design}
+
+The experiment design will use a within-subjects approach.
+
+\subsubsection{Apparatus}
+
+In order to reduce possibility of apparatus bias, navigation tasks will all take place on the same computer setup. This will be a standard ECS workstation, with the latest version of Google Chrome installed so as to run Leap Earth. The Leap Motion device will be the tool used for gestural interaction.
+
+\subsubsection{Independent and Dependent Variables} 
+
+The Independent variable is the use of either the gestural interface, or interacting with the map via mouse and keyboard. 
+
+Dependent variables measured will be as follows:
+
+\begin{itemize}
+\item Time taken to navigate locations on Leap Earth -> this will be measured for both interface types
+\item Number of times required to refer to map when navigating between locations in vehicle
+\end{itemize}
+
+\subsubsection{Hypotheses}
+
+I hypothesise that using the gestural interface will result in innefficencies, meaning time taken to navigate between two locations in the gestural interface will take longer. However navigating the system using a spatial navigation technique may have some effect on how well participants remember the route, and therefore require less reference to the physical map during the experiment.
+
+\section{Experiment Justification}
+\label{sec:discussion}
+
+\subsection{Problems/Limitations}
+
+\subsubsection{Within-Subjects Design}
+
+There are a few biases introduced by the experimental procedure. Using the within-subjects approach was desired to see how the same users react with different systems, however we may see some carryover effects in the results. For example, performance in the second driving task may be raised due to familiarity with the task, and some mental cognition about how to better internalise the route. Practice with the Leap Earth interface may also have an effect on how efficiently users navigate the interface in the second task round.
+
+\subsubsection{Navigation Task Influence}
+
+Unfortunately with navigation tasks, local participants will be at an advantage for having a general feel for the city layout. Part of the advantage of reducing dependency on navigation device usage is particularly relevant for exploring foreign cities, e.g. when you find yourself in a less desirable part of town with a dead phone. However with the resources available, it is much easier to find local individuals for an experiment than tourists. Further, some routes may be intrinsically more difficult to navigate than others. To reduce this effect, routes which explore suburban, one-lane roads will be used. This will reduce the possibility of further navigation confusion due to things like multiple lane roads.
+
+\subsection{Experiment Selection Justification}
+
+The experiment relating to better spatial understanding through gestural interfaces was selected due to the unfortunate likelihood that the Leap Earth system is going to be inevitably slower than a keyboard/mouse or touchscreen mapping interface. This is because there are massive shortcuts available when navigating with keyboard and mouse input, such as direct location input. Whilst an experiment to validate location lookup efficiency would have been valid, it would have been a fairly one-sided experiment in the context of Leap Earth. 
+
+Further with respect to mapping applications, interfaces have become fairly standardised and the market dominated by Google maps and Apple maps. 
+
+
+% We recommend abbrvnat bibliography style.
+
+\bibliographystyle{abbrvnat}
+\bibliography{bibliography}  % often included from a separate file.
+
+
+
+\end{document}
+
+%                       Revision History
+%                       -------- -------
+%  Date         Person  Ver.    Change
+%  ----         ------  ----    ------
+
+%  2013.06.29   TU      0.1--4  comments on permission/copyright notices
+

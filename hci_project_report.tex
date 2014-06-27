@@ -189,6 +189,10 @@ Despite the relatively frequent failures of the Leap Motion to accurately detect
 
 Something that rarely occurs with the traditional mouse and keyboard setup is user tiring. However with the Leap Motion, after holding my hands in the air for extended periods of time I found myself getting tired. Despite the tag of natural and intuitive interaction given to Leap Motion, it is actually not particularly natural to sit with arms extended for long periods of time. This was mitigatable at my desk my resting my elbows on the seat armrests, but was still a much more effort-inducing posture than typing on a keyboard. I wonder how Occupational overuse syndrome (OOS) would fare with long-term uses of the Leap Motion - surely the requirement for significantly more muscle use than the keyboard/mouse, and little more oxygen moving through the body would be a prime cause of OOS.
 
+\subsection{Device Unresponsiveness}
+
+One unusual and recurring issue with the motion device is that it would frequently become unresponsive, with the only way to get it started again being to unplug it and plug it back in again. This would generally occur after a period of unuse, but also occasionally occured during interactions. It was not immediately obvious that the device had stopped detecting input, as in the Leap control panel it was still claiming to be active. I am not sure if this is a defect with the particular model I have, or a more general issue, but I could not find evidence of others experiencing the same difficulties online.
+
 \subsection{New Design Considerations}
 
 Following discussion in class about designing for intuitive gesture based interfaces, I imagined that implementing an interface based off pure gesture recognition and interaction would be relatively straightforward. However the difficulty with the device recognising hand position and gestures made this task more complicated than I envisaged. The lack of established standards and rules also means that experimentation is the rule of the day; it is still difficult to predict whether a set of gestures will work together and not conflict. 
@@ -207,7 +211,27 @@ The multitude of supported languages for developing with Leap is of great advant
 
 \subsection{Programming Model}
 
-The only API I worked with was the Javascript API, largely because working with Javascript and HTML is a very straightforward means to getting a basic interface up and running quickly (e.g. compared to Java swing). The Leap Motion programming model whilst working with the Javascript API is very sensible, basically just consisting of a single programming loop, following reactive programming models. This works well with web documents, as the loop refresh is about as fast as page refresh. This allows for very smooth manipulation of objects, as seen with the Leap Earth system - manipulation of the globe is very smooth. 
+The only API I worked with was the Javascript API, largely because working with Javascript and HTML is a very straightforward means to getting a basic interface up and running quickly (e.g. compared to Java Swing). The Leap Motion programming model whilst working with the Javascript API is very sensible, basically just consisting of a single programming loop, following reactive programming models. This works well with web documents, as the loop refresh is about as fast as page refresh. This allows for very smooth manipulation of objects, as seen with the Leap Earth system - manipulation of the globe is very smooth. Incorporating the Leap API into a javascript application is extremely straightforward - a single import to an online document means the API can be updated without programmer effort to download the latest version and incorporate it into an application. This means we have to trust the Leap Motion devs not to break our code during updates of the API - but this is hopefully a reasonable assumption. 
+
+The model for detecting position and movement is extremely powerful - it allows for comparison between previous frames and distance vectors on every element detected by the Leap Motion device. Multiple previous frames are stored, allowing for flexible comparisons dating back to the past few seconds. 
+
+Despite the limitations of accuracy, the gesture model is also fairly powerful and easy to use. Within the main controller loop, the gesture detection can be added simply by referencing the current frame and asking for any gestures contained in the frame. Gesture type may then be queried, and reaction to gesture coded accordingly. Whether the gesture has just started, is ongoing, or has finished is also easily accesible - important information for potentially lengthy gestures such as swipes. User defined gestures can also be created as Objects within javascript code, and then queried as per standard gestures defined in the Leap API. 
+
+%User-defined gestures can be created as Obj%cts within javascript code, and 
+
+\subsection{3D Interfaces and Mathematics}
+
+One of the difficulties I encountered developing for the Leap Motion was not caused by the Leap APIs themselves but by the very nature of programming for a 3D interface. There is more maths involved when converting a 3D model into a essentially 2D interface. This style of coding would possibly be more familiar to programmers who have experience with graphics programming for example. Seeing examples online littered with sin and cosine functions was the most daunting element of learning Leap Motion. This was also a element of designing a system responding to changes in 3D vectors - simply making an interface respond to chosen gestures is a more straightforward challenge, despite the limitations of Leap Motion gesture detection.
+
+\subsection{Lack of Standards}
+
+Again the lack of standards within the current gestural-interface community is an interesting challenge when developing with the Leap Motion. I am conflicted as to whether this is a good or bad thing for developers - it is possibly too early in gestural interface development to implement defined standards, at the risk of killing creativity. As someone who personally likes to extend off example rather than experiment with totally new features, I would have liked some more example programming style and gestural design information to base my application off, however. 
+
+\section{Conclusion}
+
+The Leap Motion is a new and exciting gesture recognition device, that has resulted in fairly high use by developers. My project to experiment with the Leap Motion kit was a Leap-Earth interface, intended to be similar to a 3D Google-Maps interface controlled soley by gestures. This was a sucess, despite difficulties around conflicting gestures which are possibly a wider symptom of issues with 3D interfaces currently. 
+
+%Having had little experience with graphics programming 
 
 % These include links to an 'about' page which describes the supported gestures, a 'stop' button (which cancels all movement on page), a na
 
@@ -242,7 +266,6 @@ The only API I worked with was the Javascript API, largely because working with 
 
 % \section{Interface Design Decisions}
 
-\section{Conclusion}
 
 
 
