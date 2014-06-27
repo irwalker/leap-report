@@ -62,16 +62,6 @@
 \copyrightdata{978-1-nnnn-nnnn-n/yy/mm} 
 \doi{nnnnnnn.nnnnnnn}
 
-% Uncomment one of the following two, if you are not going for the 
-% traditional copyright transfer agreement.
-
-%\exclusivelicense                % ACM gets exclusive license to publish, 
-                                  % you retain copyright
-
-%\permissiontopublish             % ACM gets nonexclusive license to publish
-                                  % (paid open-access papers, 
-                                  % short abstracts)
-
 \titlebanner{banner above paper title}        % These are ignored unless
 \preprintfooter{short description of paper}   % 'preprint' option specified.
 
@@ -86,23 +76,15 @@
 
 \begin{abstract}
 
-TODO
+Leap Motion is appearing as a potential technology to bring gesture-controlled systems into the wider consumer market. This report reviews the construction of a Google-Maps like interface for Leap Motion, controlled by gestural input. The system developed - Leap Earth is described, and the gesture and interface design decisions analysed. Discussion around the real limitations of current Leap Motion software leads to the argument that current gesture systems are still in a gimmicky phase. However current tooling around the Leap SDKs is extremly well designed, despite the inherent complexity introduced when developing for a 3D interface.
 
 \end{abstract}
 
-% \category{CR-number}{subcategory}{third-level}
-
-% general terms are not compulsory anymore, 
-% you may leave them out
-% \terms
-% term1, term2
-
-% \keywords
-% keyword1, keyword2
-
 \section{Introduction}
 
+Gestural interfaces are an emerging challenge for interface designers, with succesful and extremely fine-grained control mechanisms such as the Leap Motion emerging into the consumer market. Mapping applications are widely used on multiple platforms; interfaces with mapping software have been designed using traditional keyboard/mouse setups, touchscreen and even voice controlled GPS systems - all of which have been successfully adopted in the consumer market. An equivalent prototype using gesture control would be an interesting experiment.
 
+The remainder of this paper is structured as follows. Section \ref{sec:leap_system} looks at the Leap Earth system implemented, as well as a brief description of the technologies used in implementation. Section \ref{sec:design_decisions} analyses user interface design decisions taken whilst implementing the system, with regard to interface layout and supported gestures. Section \ref{sec:leap_interaction} critiques the effectiveness of the Leap Motion for controlling interfaces, whilst Section \ref{sec:leap_development} reviews how useful the Leap SDKs are for constructing quality software.
 
 \section{Leap Earth System}
 \label{sec:leap_system}
@@ -111,9 +93,29 @@ The Leap Earth System created is intended to be a prototype for a more natural g
 
 The Leap Earth system simply consists of a map rendered on a globe that may be interacted with using gestures. As we zoom in and out, more or less detail is displayed on the globe. Actual features of mapping software (e.g. consider Google Maps direction function) has of course not been implemented. Rather the focus of implementation has been experimentation with various gestural control styles of the globe itself. One feature added to demonstrate additional layered interaction was the placing of markers on the map. This was added as part of consideration of the directions use-case for Google Maps; we must firstly place two markers that the mapping software will provide directions between. 
 
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=150px]{images/entire_interface.png}
+\caption{Entire Leap Earth Interface - globe and sidebar shown}
+\label{fig:halo_comparison}
+\vspace{-10pt}
+\end{figure}
+\end{center}
+
 Gestural features supported for globe interaction are primarily based on navigation around the globe. Moving the hand left moves the globe left; moving the hand right moves the globe right, and the same for up and down movements. Zooming is controlled by either moving the hand up or down, or via a finer-grained finger rotation gesture. Finally, perfoming a finger 'flick' action will place a marker at the center of the screen. Discussion of the supported gestural features is given in Section \ref{sec:design_decisions}.
 
 As well as the primary globe at center screen, a basic side-bar provides some extra functionality. There is a link to an 'about' page, that provides some description as to the purpose of the system, as well as the gestures supported. A stop rotation button allows for pausing of all animations, largely added for debugging purposes early in the project. A 'navigate to location' text box was also placed in the sidebar. This allows the user to type in some location - e.g. 'Wellington', which will cause the globe to rotate and zoom on that particular location. Finally, a Leap Hand is rendered in the sidebar, displaying precisely what the Leap Motion device sees in real time. 
+
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=150px]{images/palm_spread_zoom.png}
+\caption{Leap Hand from sidebar - displaying palm with spread fingers}
+\label{fig:halo_comparison}
+\vspace{-10pt}
+\end{figure}
+\end{center}
 
 \subsection{Implementation Tools}
 
@@ -151,6 +153,16 @@ The final action possible on the main earth section is the placing of coordinate
 
 It is likely that at this stage the reader is thinking of the circling gestures, and how false palm movement detection resulted in undesired globe rotation. The output for a jerky finger tap is, as one would expect, even worse. Again, implementation of a dead zone could have helped with this, but at such a detriment to overall usability that this was considered infeasible. Other gestures were again considered. Certain hand positions (e.g. ball the fist) could have corresponded to placing the coordinate, or any other number of hand poses not requiring actual hand movement. However I considered part of the goal of the system to look at how natural and intuitive interaction styles would work - and really there was no sensible mapping from hand poses into marker placement. Further, what part of the pose constitutes actual placement - when one enters the pose, or exits the pose? These considerations made me prefer the flawed, but ultimately more natural finger tap gesture.
 
+\begin{center}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=150px]{images/marker_placement.png}
+\caption{Placement of markers - difficulty of maintaining accurate placement fairly apparent}
+\label{fig:halo_comparison}
+\vspace{-10pt}
+\end{figure}
+\end{center}
+
 \subsection{Sidebar Design Decisions}
 
 The Sidebar design was inspired by the overall layout of Google Maps, which has the simple UI of the map itself and a bar with relevant informative messages etc to the left of the page. 
@@ -166,7 +178,7 @@ We can see that further gestures clashing with existing ones, as well as gesture
 Having reviewed the Leap Earth system developed, and discussed core design decisions relating to the interface and gesture interaction, we will now look at the Leap Motion controller as an interaction device.
 
 
-\section{Leap Motion Interaction Critique} 
+\section{Leap Motion Interaction} 
 \label{sec:leap_interaction}
 
 \subsection{Consumer Focus}
@@ -187,7 +199,7 @@ Despite the relatively frequent failures of the Leap Motion to accurately detect
 
 \subsection{User Fatigue}
 
-Something that rarely occurs with the traditional mouse and keyboard setup is user tiring. However with the Leap Motion, after holding my hands in the air for extended periods of time I found myself getting tired. Despite the tag of natural and intuitive interaction given to Leap Motion, it is actually not particularly natural to sit with arms extended for long periods of time. This was mitigatable at my desk my resting my elbows on the seat armrests, but was still a much more effort-inducing posture than typing on a keyboard. I wonder how Occupational overuse syndrome (OOS) would fare with long-term uses of the Leap Motion - surely the requirement for significantly more muscle use than the keyboard/mouse, and little more oxygen moving through the body would be a prime cause of OOS.
+Something that rarely occurs with the traditional mouse and keyboard setup is user fatigue. However with the Leap Motion, after holding my hands in the air for extended periods of time I found myself getting tired. Despite the tag of natural and intuitive interaction given to Leap Motion, it is actually not particularly natural to sit with arms extended for long periods of time. This was mitigatable at my desk my resting my elbows on the seat armrests, but was still a much more effort-inducing posture than typing on a keyboard. I wonder how Occupational overuse syndrome (OOS) would fare with long-term uses of the Leap Motion - surely the requirement for significantly more muscle use than the keyboard/mouse, and little more oxygen moving through the body would be a prime cause of OOS.
 
 \subsection{Device Unresponsiveness}
 
@@ -199,7 +211,8 @@ Following discussion in class about designing for intuitive gesture based interf
 
 The above difficulties with both designing interfaces for Leap Motion and actually using the tool accurately mean that I believe the Leap Motion is still at a gimmicky stage of gesture-based interface design and use. While the tool was fun to play with and build a tool for, at this stage the real limitations with its use mean I could not envisage it as a serious industrial tool. 
 
-\section{Leap Motion Development Discussion}
+\section{Leap Motion Development}
+\label{sec:leap_development}
 
 The Leap Motion was a nice tool to develop software for, reasons for which will be discussed now.
 
@@ -217,19 +230,17 @@ The model for detecting position and movement is extremely powerful - it allows 
 
 Despite the limitations of accuracy, the gesture model is also fairly powerful and easy to use. Within the main controller loop, the gesture detection can be added simply by referencing the current frame and asking for any gestures contained in the frame. Gesture type may then be queried, and reaction to gesture coded accordingly. Whether the gesture has just started, is ongoing, or has finished is also easily accesible - important information for potentially lengthy gestures such as swipes. User defined gestures can also be created as Objects within javascript code, and then queried as per standard gestures defined in the Leap API. 
 
-%User-defined gestures can be created as Obj%cts within javascript code, and 
-
 \subsection{3D Interfaces and Mathematics}
 
 One of the difficulties I encountered developing for the Leap Motion was not caused by the Leap APIs themselves but by the very nature of programming for a 3D interface. There is more maths involved when converting a 3D model into a essentially 2D interface. This style of coding would possibly be more familiar to programmers who have experience with graphics programming for example. Seeing examples online littered with sin and cosine functions was the most daunting element of learning Leap Motion. This was also a element of designing a system responding to changes in 3D vectors - simply making an interface respond to chosen gestures is a more straightforward challenge, despite the limitations of Leap Motion gesture detection.
 
 \subsection{Lack of Standards}
 
-Again the lack of standards within the current gestural-interface community is an interesting challenge when developing with the Leap Motion. I am conflicted as to whether this is a good or bad thing for developers - it is possibly too early in gestural interface development to implement defined standards, at the risk of killing creativity. As someone who personally likes to extend off example rather than experiment with totally new features, I would have liked some more example programming style and gestural design information to base my application off, however. 
+Again the lack of standards within the current gestural-interface community is an interesting challenge when developing with the Leap Motion. I am conflicted as to whether this is a good or bad thing for developers - it is possibly too early in gestural interface development to implement defined standards, at the risk of killing creativity. However as someone who personally likes to extend off example rather than experiment with totally new features, I would have liked some more example programming style and gestural design information to base my application off.
 
 \section{Conclusion}
 
-The Leap Motion is a new and exciting gesture recognition device, that has resulted in fairly high use by developers. My project to experiment with the Leap Motion kit was a Leap-Earth interface, intended to be similar to a 3D Google-Maps interface controlled soley by gestures. This was a sucess, despite difficulties around conflicting gestures which are possibly a wider symptom of issues with 3D interfaces currently. 
+The Leap Motion is a new and exciting gesture recognition device, that has resulted in fairly high use by developers. My project to experiment with the Leap Motion kit was a Leap-Earth interface, intended to be similar to a 3D Google-Maps interface controlled soley by gestures. This was a sucess, despite difficulties around conflicting gestures which are possibly a wider symptom of issues with 3D interfaces currently. Unfortunately such innacuracies may render the Leap Motion as a gimmicky interaction mechanism, but it certainly presents a range of opportunities for future gestural interface development. Developing with the Leap Motion was straightforward to learn given the added complexity of a 3D interface, however the issues around gestural detection and accuracy of detection mean that very basic interfaces are all that may be controlled by this device at present. 
 
 %Having had little experience with graphics programming 
 
